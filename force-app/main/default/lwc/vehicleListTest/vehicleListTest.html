@@ -1,0 +1,66 @@
+<template>
+    <lightning-card>
+        <div class="slds-page-header slds-page-header--object-home">
+            <lightning-layout>
+                <lightning-layout-item>
+                    <lightning-icon icon-name="standard:partners" alternative-text="Account"></lightning-icon>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-m-left--small">
+                    <h1 class="slds-page-header__title slds-p-right--x-small">INNOVATIVE CARS</h1>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item>
+                    <p class="slds-text-body--small"> •Vehicle Inspection</p>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <lightning-card title="ACCOUNTS" icon-name="utility:apps">
+            <label class="slds-form-element__label" for="select-01">
+            </label>
+            <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                    <select class="slds-select" id="select-01" onchange={onValueSelection}>
+                        <option value=" ">Select Account</option>
+                        <template for:each={accounts.data} for:item="acc">
+                            <option key={acc.Id} value={acc.Id}>
+                                {acc.Name}
+                        </option>
+                    </template>
+                </select>
+            </div>
+        </div>
+    </lightning-card>
+    <lightning-card icon-name="standard:agent_home"  title="SHOWROOMS"></lightning-icon>
+        <label class="slds-form-element__label" for="select-02"></label>
+        <div class="slds-form-element__control">
+            <div class="slds-select_container">
+                <select class="slds-select" id="select-02" onchange={onValueSelection2}>
+    <option value=" ">Select Showrooms </option>
+                    <template for:each={showrooms.data} for:item="show">
+                        <option key={show.Id} value={show.Id}>
+                            {show.Name}
+                        </option>
+                    </template>
+                </select>
+            </div>
+        </div>
+    </lightning-card>
+    <lightning-layout>
+        <lightning-layout-item padding="around-small" size="2">
+        <lightning-card title="Vehicles">
+                <template for:each={vehicles.data} for:item="veh" for:index="index">
+                    <p key={veh.Id} class="slds-p-horizontal_small">
+                        <a href="#" onclick={handleClick} data-vehicleid={veh.Id}>{veh.Name}</a>
+                    </p>
+                </template>
+            </lightning-card>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="10">
+<c-vehicle-record-list-test vehicles-id={vehicleidfrmparent}></c-vehicle-record-list-test>
+        </lightning-layout-item>
+</lightning-layout>
+</lightning-card>
+            </template>
+</lightning-card>
+</template>

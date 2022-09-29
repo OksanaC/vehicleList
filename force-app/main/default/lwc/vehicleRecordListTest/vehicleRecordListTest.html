@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="DETAILS">
+        <template if:true={vehicles.data}> 
+            <lightning-record-form object-api-name="Vehicle__c" record-id="vehicleId" layout-type="Compact">
+            </lightning-record-form>
+        </template>
+    </lightning-card>
+</template>
+
